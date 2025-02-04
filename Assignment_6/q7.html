@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fibonacci</title>
+</head>
+<body>
+    <h1>Fibonacci Sequence</h1>
+    <button onclick="show()">Generate</button>
+    <p id="res"></p>
+
+    <script>
+        function fib(n) {
+            if (n <= 1) return n;
+            return fib(n - 1) + fib(n - 2);
+        }
+
+        function show() {
+            let n = prompt('enter number :');
+            let ans = [];
+            for (let i = 0; i < n; i++) {
+                ans.push(fib(i));
+            }
+            document.getElementById("res").innerText = ans.join(", ");
+        }
+    </script>
+</body>
+</html>
