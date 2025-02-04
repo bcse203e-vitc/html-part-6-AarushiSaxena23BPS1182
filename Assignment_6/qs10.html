@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <h1>Armstrong Number Checker</h1>
+    <input type="number" id="num" placeholder="Enter a number">
+    <button onclick="check()">Check</button>
+    <p id="res"></p>
+
+    <script>
+        function isArmstrong(x) {
+            let s = x.toString();
+            let p = s.length;
+            let sum = 0;
+            for (let d of s) {
+                sum += Math.pow(+d, p);
+            }
+            return sum === x;
+        }
+
+        function check() {
+            let num = document.getElementById("num").value;
+            let ans = isArmstrong(+num) ? "Yes" : "No";
+            document.getElementById("res").innerText = ans;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <h1>Find Second Smallest & Largest</h1>
+    <button onclick="run()">Find</button>
+    <p id="out"></p>
+
+    <script>
+        function findNums(arr) {
+            arr = [...new Set(arr)].sort((a, b) => a - b);
+            if (arr.length < 2) {
+                return ["N/A", "N/A"];
+            }
+            return [arr[1], arr[arr.length - 2]];
+        }
+
+        function run() {
+            let arr = [4, 2, 9, 1, 5, 6];
+            let [sS, sL] = findNums(arr);
+            document.getElementById("out").innerText = 
+                `Second Smallest: ${sS === "N/A" ? "Not enough unique numbers" : sS}\nSecond Largest: ${sL === "N/A" ? "Not enough unique numbers" : sL}`;
+        }
+    </script>
+</body>
+</html>

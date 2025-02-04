@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <h1>Check If a String is a Pangram</h1>
+    <input type="text" id="inputStr" placeholder="Enter a sentence">
+    <button onclick="checkPangram()">Check Pangram</button>
+    <p id="pangram"></p>
+
+    <script>
+        function checkPangram() {
+            let str = document.getElementById("inputStr").value;
+            let alphabet = "abcdefghijklmnopqrstuvwxyz";
+            let lowerStr = str.toLowerCase();
+
+            for (let char of alphabet) {
+                if (!lowerStr.includes(char)) {
+                    document.getElementById("pangram").innerText = "It is not a pangram.";
+                    return;
+                }
+            }
+            document.getElementById("pangram").innerText = "It is a pangram.";
+        }
+    </script>
+</body>
+</html>

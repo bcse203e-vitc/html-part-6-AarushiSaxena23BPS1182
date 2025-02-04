@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sort Array Without sort()</title>
+</head>
+<body>
+    <h1>Sort an Array Without Using .sort()</h1>
+    <h2>Enter numbers separated by commas</h2>
+    <input type="text" id="arrayInput">
+    <button onclick="sortArray()">Sort Array</button>
+    <p id="sortedArray"></p>
+
+    <script>
+        function sortArray() {
+            let arr = document.getElementById("arrayInput").value.split(",").map(num => parseInt(num.trim()));
+            if (arr.some(isNaN)) {
+                document.getElementById("sortedArray").innerText = "Please enter a valid array of numbers.";
+                return;
+            }
+
+            let ascending = arr.slice();
+            let descending = arr.slice();
+            for (let i = 0; i < ascending.length; i++) {
+                for (let j = i + 1; j < ascending.length; j++) {
+                    if (ascending[i] > ascending[j]) {
+                        let temp = ascending[i];
+                        ascending[i] = ascending[j];
+                        ascending[j] = temp;
+                    }
+                }
+            }
+            for (let i = 0; i < descending.length; i++) {
+                for (let j = i + 1; j < descending.length; j++) {
+                    if (descending[i] < descending[j]) {
+                        let temp = descending[i];
+                        descending[i] = descending[j];
+                        descending[j] = temp;
+                    }
+                }
+            }
+            document.getElementById("sortedArray").innerText = 
+                `Ascending: ${ascending.join(", ")}\nDescending: ${descending.join(", ")}`;
+        }
+    </script>
+</body>
+</html>

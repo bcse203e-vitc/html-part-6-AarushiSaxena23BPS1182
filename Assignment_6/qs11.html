@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <h1>Vowel & Consonant Counter</h1>
+    <input type="text" id="txt" placeholder="Enter a string">
+    <button onclick="count()">Count</button>
+    <p id="out"></p>
+
+    <script>
+        function count() {
+            let s = document.getElementById("txt").value.toLowerCase();
+            let v = "aeiou", vC = 0, cC = 0, vL = [];
+            for (let x of s) {
+                if (x >= 'a' && x <= 'z') {
+                    v.includes(x) ? (vC++, vL.push(x)) : cC++;
+                }
+            }
+            document.getElementById("out").innerText = 
+                `Vowels: ${vC} (${vL.join(", ")})\nConsonants: ${cC}`;
+        }
+    </script>
+</body>
+</html>
